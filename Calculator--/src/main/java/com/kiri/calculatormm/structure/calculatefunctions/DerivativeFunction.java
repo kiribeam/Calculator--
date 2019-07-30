@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import com.kiri.calculatormm.core.CalculatorCore;
-import com.kiri.calculatormm.core.CalculatorInitializor;
+import com.kiri.calculatormm.core.CalculatorInitializer;
 import com.kiri.calculatormm.exception.DerivativeFormatException;
 import com.kiri.calculatormm.structure.BasicObject;
 import com.kiri.calculatormm.structure.CalculateFunction;
@@ -60,7 +60,7 @@ public class DerivativeFunction extends CalculateFunction{
 			scale += Math.pow(((NumberData)vars.get(i)).getVal(), 2);
 		}
 		scale = Math.sqrt(scale);
-		if(Math.abs(scale - 0) <= CalculatorInitializor.getPrecision()) throw new DerivativeFormatException("Must have a valid direction except 0");
+		if(Math.abs(scale - 0) <= CalculatorInitializer.getPrecision()) throw new DerivativeFormatException("Must have a valid direction except 0");
 		for(int i=0; i<argsNumber; i++) {
 			double d = ((NumberData) tmpStack.get(i)).getVal();
 			d += frontValue * derPrecision * ((NumberData) vars.get(i)).getVal() / scale;

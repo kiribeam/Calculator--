@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 import com.kiri.calculatormm.core.CalculatorCore;
-import com.kiri.calculatormm.core.CalculatorInitializor;
+import com.kiri.calculatormm.core.CalculatorInitializer;
 import com.kiri.calculatormm.exception.BasicRuntimeException;
 import com.kiri.calculatormm.exception.ExitProgramException;
 import com.kiri.calculatormm.structure.BasicObject;
@@ -13,7 +13,7 @@ import com.kiri.calculatormm.structure.BasicObject;
 public class CalculatorMM {
 	public static void main(String[] args) {
 		LinkedList<HashMap<String, BasicObject>> envStack = 
-				CalculatorInitializor.initEnv();
+				CalculatorInitializer.initEnv();
 		Scanner sc  = new Scanner(System.in);
 		String programLine = "";
 		while(true) {
@@ -27,7 +27,7 @@ public class CalculatorMM {
 				programLine = "";
 			}
 			try {
-				System.out.println("Eval : " + CalculatorCore.eval(
+				System.out.println("Eval result : " + CalculatorCore.eval(
 						line.replaceAll("\\t", " ").replaceAll("\\n", " "), envStack));
 			}catch(ExitProgramException e) {
 				System.out.println(e.getMessage());

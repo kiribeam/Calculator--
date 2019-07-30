@@ -34,7 +34,7 @@ import com.kiri.calculatormm.structure.controlfunctions.OrFunction;
 import com.kiri.calculatormm.structure.controlfunctions.ResetFunction;
 import com.kiri.calculatormm.util.BasicObjectFactory;
 
-public class CalculatorInitializor {
+public class CalculatorInitializer {
 	
 	private static double precision = 0.00001;
 	private static int integralSteps = 512;
@@ -129,7 +129,7 @@ public class CalculatorInitializor {
 	}
 
 	public static void setPrecision(double precision) {
-		CalculatorInitializor.precision = precision;
+		CalculatorInitializer.precision = precision;
 	}
 
 	public static int getIntegralSteps() {
@@ -137,7 +137,7 @@ public class CalculatorInitializor {
 	}
 
 	public static void setIntegralSteps(int integralSteps) {
-		CalculatorInitializor.integralSteps = integralSteps;
+		CalculatorInitializer.integralSteps = integralSteps;
 	}
 
 	public static double getDerivativePrecision() {
@@ -145,7 +145,7 @@ public class CalculatorInitializor {
 	}
 
 	public static void setDerivativePrecision(double derivativePrecision) {
-		CalculatorInitializor.derivativePrecision = derivativePrecision;
+		CalculatorInitializer.derivativePrecision = derivativePrecision;
 	}
 
 }

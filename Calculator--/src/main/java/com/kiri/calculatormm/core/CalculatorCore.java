@@ -17,7 +17,7 @@ public class CalculatorCore {
 	
 	public static BasicObject eval(String expression, LinkedList<HashMap<String, BasicObject>> envStack) {
 		LinkedList<String> parts = ExpressionUtil.formatExpression(expression);
-		System.out.println("Expression: " + parts);
+		//System.out.println("Expression: " + parts);
 		if(parts.size() == 0) throw new WrongExpressionException(" nothing inputed!");
 
 		if(parts.size() == 1) {
@@ -68,7 +68,7 @@ public class CalculatorCore {
 					}
 				}
 				evalStack.push(apply(tmpStack,envStack));
-				System.out.println("EvalStack: " + evalStack);
+				//System.out.println("EvalStack: " + evalStack);
 			}else {
 				evalStack.push(bo);
 			}
@@ -79,7 +79,7 @@ public class CalculatorCore {
 	public static BasicObject apply(LinkedList<BasicObject> tmpStack, 
 			LinkedList<HashMap<String, BasicObject>> envStack) {
 		if(tmpStack.isEmpty()) throw new WrongExpressionException(" empty brackets!");
-		System.out.println("Apply: " + tmpStack);
+		//System.out.println("Apply: " + tmpStack);
 		BasicObject o = tmpStack.pop();
 		if(!(o instanceof GeneralFunction)) {
 			throw new NotAFunctionException(o.toString());
@@ -94,16 +94,16 @@ public class CalculatorCore {
 				funcEnv.put(arg, tmpStack.pop());
 			}
 		}else {
-			System.out.println("variable");
+			//System.out.println("variable");
 			if(tmpStack.size() < size-1)
 				throw new ArgsNumberDismatchException(function.toString());
 			for(int i=0; i<size-1; i++) {
 				funcEnv.put(function.getArgs().get(i), tmpStack.pop());
-				System.out.println("tmpStack:" + tmpStack);
+				//System.out.println("tmpStack:" + tmpStack);
 			}
 			funcEnv.put(function.getArgs().get(size-1), LinearTableUtil.convertListToListNode(tmpStack));
 		}
-		System.out.println("FuncEnv: " + funcEnv);
+		//System.out.println("FuncEnv: " + funcEnv);
 		envStack.push(funcEnv);
 		BasicObject result = function.exec(envStack);
 		envStack.pop();
